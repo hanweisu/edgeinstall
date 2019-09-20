@@ -1,6 +1,7 @@
 #!/bin/sh
 echo "Adding Kangle monitor script for Zabbix"
 test ! -d /etc/zabbix/scripts && echo "Zabbix scripts directory doesn't exist, creating..." && mkdir /etc/zabbix/scripts
+rm -f /etc/zabbix/scripts/kangle_status.sh
 tee -a /etc/zabbix/scripts/kangle_status.sh << END
 #/bin/sh
 curl http://127.0.0.1:3311/core.whm?whm_call=info &>/dev/null  > /tmp/kangle-info.xml
